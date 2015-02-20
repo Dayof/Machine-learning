@@ -22,11 +22,10 @@ for iter = 1:num_iters
 
     % errors
     err = h .- y;
+    dec = (alpha/m) * err' * X;
 
     % Gradient Descent for multiple variable
-    for feart = 1:size(X,2)
-        theta(feart) = theta(feart) - ((alpha/m) * sum(err' * X(:,feart)));
-    endfor
+    theta = theta - dec';
 
     % ============================================================
 
