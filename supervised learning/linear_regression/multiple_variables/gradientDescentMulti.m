@@ -17,21 +17,22 @@ for iter = 1:num_iters
     %       of the cost function (computeCostMulti) and gradient here.
     %
 
+    % hypothesis
+    h = X * theta;
 
+    % errors
+    err = h .- y;
 
-
-
-
-
-
-
-
+    % Gradient Descent for multiple variable
+    for feart = 1:size(X,2)
+        theta(feart) = theta(feart) - ((alpha/m) * sum(err' * X(:,feart)));
+    endfor
 
     % ============================================================
 
     % Save the cost J in every iteration    
     J_history(iter) = computeCostMulti(X, y, theta);
 
-end
+endfor
 
 end
