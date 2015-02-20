@@ -26,13 +26,17 @@ sigma = zeros(1, size(X, 2));
 % Hint: You might find the 'mean' and 'std' functions useful.
 %       
 
+% Calculate the 'mean' and 'std' of each feature
+mu = mean(X)
+sigma = std(X)
 
-
-
-
-
-
-
+	% Number of iterations according to the number of the features
+	for iter = 1:size(X,2)
+		% Number of inside iterations according to the amount of the datas
+		for index = 1:length(X)
+			X_norm(index, iter) = (X(index, iter) - mu(iter)) / sigma(iter);
+		endfor
+	endfor
 
 % ============================================================
 
